@@ -11,6 +11,7 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
     t.integer :employees_id
     t.integer :status_id,   null: false
     t.integer :rank_id,     null: false
+    t.references :user,     foreign_key: true
     t.timestamps
     end
   end

@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :company_users
-  has_many :companies, through: :company_users
+  has_many :companies
          
   validates :name, presence: true
   

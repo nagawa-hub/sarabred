@@ -9,39 +9,28 @@
 | name               | string  | null: false              |
 
 ### Association
-- has_many :company_users
-- has_many :companies, through: company_users
+- has_many :companies
 - has_many :activities
 
-## company_usersテーブル(中間テーブル)
-
-| Column  | Type       | Options                       |
-| ------- | ---------- | ----------------------------- |
-| user    | references | null: false foreign_key: true |
-| company | references | null: false foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :company
 
 ## companiesテーブル
 
-| Column           | Type    | Options     |
-| ---------------- | ------- | ----------- |
-| company_name     | string  | null: false |
-| phone_number     | string  | null: false |
-| address          | string  |             |
-| building_name    | string  |             |
-| nearest_station  | string  |             |
-| industry_id      | integer | null: false |
-| capital_stock_id | integer |             |
-| employees_id     | integer |             |
-| status_id        | integer | null: false |
-| rank_id          | integer | null: false |
+| Column           | Type       | Options                       |
+| ---------------- | ---------- | ----------------------------- |
+| company_name     | string     | null: false                   |
+| phone_number     | string     | null: false                   |
+| address          | string     |                               |
+| building_name    | string     |                               |
+| nearest_station  | string     |                               |
+| industry_id      | integer    | null: false                   |
+| capital_stock_id | integer    |                               |
+| employees_id     | integer    |                               |
+| status_id        | integer    | null: false                   |
+| rank_id          | integer    | null: false                   |
+| user             | references | null: false foreign_key: true |
 
 ### Association
-- has_many :company_users
-- has_many :users, through: company_users 
+- belongs_to :user 
 - has_many :activities
  
 ## activitiesテーブル
@@ -51,8 +40,8 @@
 | date        | string     | null: false                   |
 | client_name | string     | null: false                   |
 | memo        | string     | null: false                   |
-| user        | references | null: false foreign_key :true |
-| company     | references | null: false foreign_key :true |
+| user        | references | null: false foreign_key: true |
+| company     | references | null: false foreign_key: true |
 
 ### Association
 - belongs_to :user
