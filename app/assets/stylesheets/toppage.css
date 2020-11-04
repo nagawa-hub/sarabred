@@ -30,3 +30,7 @@
   background-color:white;
   width: calc(100vw - 200px);
 }
+.select-box {
+  height: 30px;
+  width: 200px;
+}

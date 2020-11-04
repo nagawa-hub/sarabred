@@ -8,7 +8,7 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
     t.string :nearest_station
     t.integer :industry_id, null: false
     t.integer :capital_stock_id
-    t.integer :employees_id
+    t.integer :employee_id
     t.integer :status_id,   null: false
     t.integer :rank_id,     null: false
     t.references :user,     foreign_key: true

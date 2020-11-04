@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_024915) do
     t.string "nearest_station"
     t.integer "industry_id", null: false
     t.integer "capital_stock_id"
-    t.integer "employees_id"
+    t.integer "employee_id"
     t.integer "status_id", null: false
     t.integer "rank_id", null: false
     t.bigint "user_id"

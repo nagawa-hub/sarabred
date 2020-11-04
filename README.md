@@ -24,7 +24,7 @@
 | nearest_station  | string     |                               |
 | industry_id      | integer    | null: false                   |
 | capital_stock_id | integer    |                               |
-| employees_id     | integer    |                               |
+| employee_id      | integer    |                               |
 | status_id        | integer    | null: false                   |
 | rank_id          | integer    | null: false                   |
 | user             | references | null: false foreign_key: true |
