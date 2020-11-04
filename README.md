@@ -26,15 +26,18 @@
 
 ## companiesテーブル
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| company_name  | string  | null: false |
-| phone_number  | string  | null: false |
-| address       | string  |             |
-| building_name | string  |             |
-| industry_id   | integer | null: false |
-| status_id     | integer | null: false |
-| rank_id       | integer | null: false |
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| company_name     | string  | null: false |
+| phone_number     | string  | null: false |
+| address          | string  |             |
+| building_name    | string  |             |
+| nearest_station  | string  |             |
+| industry_id      | integer | null: false |
+| capital_stock_id | integer |             |
+| employees_id     | integer |             |
+| status_id        | integer | null: false |
+| rank_id          | integer | null: false |
 
 ### Association
 - has_many :company_users
