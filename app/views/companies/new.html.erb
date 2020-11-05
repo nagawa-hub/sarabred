@@ -1,12 +1,12 @@
 会社追加ページ
 
-<%=form_with model: @company, local: true do |f|%>
+<%= form_with model: @company, local: true do |f|%>
 
 <%= f.text_field :company_name, placeholder:"会社名を入力してください" %>
 <%= f.text_field :phone_number, placeholder:"例）03-1234-1234" %>
 <%= f.text_field :address, placeholder:"例）横浜市緑区青山1-1-1" %>
 <%= f.text_field :building_name, placeholder:"例）横浜国際ビル5F" %>
-<%= f.text_field :nearest_station, placeholder:"例）品川駅" %>
+<%= f.text_field :nearest_station, placeholder:"例）品川" %>
 <%= f.collection_select(:industry_id, Industry.all, :id, :name, {}, {class:"select-box"}) %>
 <%= f.collection_select(:capital_stock_id, CapitalStock.all, :id, :name, {}, {class:"select-box"}) %>
 <%= f.collection_select(:employee_id, Employee.all, :id, :name, {}, {class:"select-box"}) %>

@@ -35,13 +35,13 @@
  
 ## activitiesテーブル
 
-| Column      | Type       | Options                       |
-| ----------- | ---------- | ----------------------------- |
-| date        | string     | null: false                   |
-| client_name | string     | null: false                   |
-| memo        | string     | null: false                   |
-| user        | references | null: false foreign_key: true |
-| company     | references | null: false foreign_key: true |
+| Column       | Type       | Options                       |
+| ------------ | ---------- | ----------------------------- |
+| activity_day | date       | null: false                   |
+| client_name  | string     | null: false                   |
+| memo         | text       |                               |
+| user         | references | null: false foreign_key: true |
+| company      | references | null: false foreign_key: true |
 
 ### Association
 - belongs_to :user

@@ -16,5 +16,8 @@
   <%= @company.building_name %>
 </div>
 
-<%= link_to '活動を記録','#' %>
+<%= link_to '活動を記録',new_company_activity_path(@company) %>
 
+<% @activities.each do |activity| %>
+  <%= activity.activity_day %>
+<% end %>

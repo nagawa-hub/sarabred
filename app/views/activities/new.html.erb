@@ -1,0 +1,10 @@
+活動記録ページ
+
+<%= form_with model: [@company, @activity], local: true do |f| %>
+  
+  <%= f.date_select :activity_day, default: { year: Time.now.year, month: Time.now.month, day: Time.now.day } %>
+  <%= f.text_field :client_name, placeholder:"例)山田" %>
+  <%= f.text_area :memo %>
+  <%= f.submit %>
+
+<% end %>

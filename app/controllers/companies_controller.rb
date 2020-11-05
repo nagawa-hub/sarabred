@@ -19,6 +19,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @activities = @company.activities
   end
 
   private
