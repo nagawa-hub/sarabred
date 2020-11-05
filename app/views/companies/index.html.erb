@@ -5,23 +5,31 @@
         <%= link_to image_tag("logo.png", class:"logo"), "/" %>
       </div>
       <form class="search-company" action="#">
-        <input id="input-box" placeholder="会社名を入力">
+        <input placeholder="会社名を入力">
       </form>
     </div>
   <div class="header-around-color"></div>
   <div class="bottom-area">
     <div class="side-bar">
-    <ul>
-      <% if user_signed_in? %>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to '会社情報を追加', new_company_path %></li>
-      <% else %>       
-        <li><%= link_to 'ログイン', new_user_session_path %></li>
-        <li><%= link_to '新規登録', new_user_registration_path %></li>
-      <% end %>
-    </ul>
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to '会社情報を追加', new_company_path %></li>
+        <% else %>       
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <li><%= link_to '新規登録', new_user_registration_path %></li>
+        <% end %>
+      </ul>
     </div>
     <div class="main-page">
+      <% @companies.each do |company| %>
+        <div>
+          <%= link_to company_path(company.id) do %>
+            <%= company.company_name %>
+          <% end %>
+            <%= company.phone_number %>
+        </div>        
+      <% end %>
     </div>
   </div> 
 </div>
