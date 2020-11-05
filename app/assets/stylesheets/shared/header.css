@@ -1,0 +1,23 @@
+.top-page-header {
+  width: 100vw;
+  height:120px;
+  padding: 2vh 15vw;
+}
+.header-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-title{
+  display: flex;
+  align-items: center;
+  margin-right: 10vw;
+}
+.logo-icon{
+  width: 100px;
+  height: 100px;  
+}
+.input-box {
+  width: 30vw;
+  padding-left: 10px;
+}

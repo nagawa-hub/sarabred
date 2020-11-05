@@ -1,14 +1,6 @@
-<div class="wrapper">
-  <div class="header-around-color"></div>
-    <div class="header-area">
-      <div class="logo-area">
-        <%= link_to image_tag("logo.png", class:"logo"), "/" %>
-      </div>
-      <form class="search-company" action="#">
-        <input placeholder="会社名を入力">
-      </form>
-    </div>
-  <div class="header-around-color"></div>
+<%= render "shared/header" %>
+
+<div class="wrapper">    
   <div class="bottom-area">
     <div class="side-bar">
       <ul>

@@ -1,26 +1,7 @@
-.header-around-color{
-  background-color:#00CC66;
-  width:100vw;
-  height: 5px;
-}
-.header-area{
-  background-color: white;
-  height: 90px;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-}
-.logo{
-  margin-left: 80px;
-  width: 85px;
-  height: 85px;
-}
-.search-company{
 
-}
 .bottom-area{
   display: flex;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 120px);
 }
 .side-bar{
   background-color:white;
