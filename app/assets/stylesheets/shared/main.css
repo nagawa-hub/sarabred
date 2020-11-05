@@ -1,0 +1,36 @@
+.main{
+  height: calc(100vh - 135px);
+  display: flex;
+}
+.left-side-bar{
+  background-color:#C0C0C0 ;
+  width: 170px;
+  padding: 20px 10px;
+}
+.center-contents{
+  background-color:white;
+  width: calc(100vw - 170px);
+  padding: 20px;
+}
+
+.left-lists{
+  margin-bottom: 20px;
+}
+.save_company,
+.sign_out,
+.sign_in,
+.sign_up {
+  font-size:15px;
+  color: black;
+}
+
+
+.select-box {
+  height: 30px;
+  width: 200px;
+}
+.top-page-footer{
+  width: 100vw;
+  height: 15px;
+  background-color: gray;
+}

@@ -1,27 +1,30 @@
 <%= render "shared/header" %>
 
-<div class="wrapper">    
-  <div class="bottom-area">
-    <div class="side-bar">
-      <ul>
-        <% if user_signed_in? %>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to '会社情報を追加', new_company_path %></li>
-        <% else %>       
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-          <li><%= link_to '新規登録', new_user_registration_path %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="main-page">
-      <% @companies.each do |company| %>
-        <div>
-          <%= link_to company_path(company.id) do %>
-            <%= company.company_name %>
-          <% end %>
-            <%= company.phone_number %>
-        </div>        
+<div class="main">    
+  <div class="left-side-bar">
+    <ul class="sign_in_contents">
+      <% if user_signed_in? %>
+        <li class="left-lists">User：<%= current_user.name %><li>
+        <li class="left-lists"><%= link_to "会社情報を登録する", new_company_path, class: "save_company" %></li>
+        <li class="left-lists"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "sign_out" %></li>
+      <% else %>       
+        <li class="left-lists"><%= link_to "ログイン", new_user_session_path, class: "sign_in" %></li>
+        <li class="left-lists"><%= link_to "新規アカウント登録", new_user_registration_path, class: "sign_up" %></li>
       <% end %>
-    </div>
+    </ul>
+  </div>
+
+  <div class="center-contents">
+    <% @companies.each do |company| %>
+      <div>
+        <%= link_to company_path(company.id) do %>
+          <%= company.company_name %>
+        <% end %>
+          <%= company.phone_number %>
+      </div>        
+    <% end %>
   </div> 
 </div>
+
+<footer class="top-page-footer">
+</footer>
