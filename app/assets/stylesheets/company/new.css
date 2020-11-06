@@ -1,0 +1,106 @@
+.company-new-main {
+  width: 100vw;
+  background-color: #C0C0C0;
+}
+.company-new-center {
+  width: 80%;
+  height: 100vh;
+  background-color: white;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+/* 以下フォーム */
+.must-icon {
+  color: red;
+}
+.company-form {
+  margin-bottom: 20px;
+}
+.company-text-box{
+  margin-top: 10px;
+  width: 250px;
+  padding-left: 10px;
+}
+
+.phone-number-form {
+  margin-bottom: 20px;
+}
+.phone-text-form{
+  padding-left: 10px;
+  width: 160px;
+  margin-left: 10px;
+}
+
+.address-form {
+  margin-bottom: 20px;
+}
+.address-text-form {
+  margin-top: 10px;
+  width: 250px;
+  padding-left: 10px;
+}
+
+.building-form {
+  margin-bottom: 20px;
+}
+.building-text-form{
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 185px;
+}
+
+.station-form {
+  margin-bottom: 40px;
+}
+.station-text-form{
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 160px;
+}
+.industry-form {
+  margin-bottom: 20px;
+}
+.industry-select-box {
+  margin-left: 40px;
+}
+.capital-form {
+  margin-bottom: 20px;
+}
+.capital-select-box {
+  margin-left: 40px;
+}
+.employee-form {
+  margin-bottom: 20px;
+}
+.employee-select-box {
+  margin-left: 30px;
+}
+.status-form {
+  margin-bottom: 20px;
+}
+.status-select-box{
+  margin-left: 10px;
+}
+.rank-form {
+  margin-bottom: 50px;
+}
+.rank-select-box{
+  margin-left: 40px;
+}
+.save-form{
+  display: flex;
+  flex-direction: column;
+}
+.save-btn{
+  height: 40px;
+  width: 130px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.back-btn{
+  margin: 0 0 0 auto;
+  color: black;
+}

@@ -1,23 +1,44 @@
-会社詳細
+<header class="top-page-header">
+  <div class="header-contents">
+    <div class="logo-title">
+      <%= link_to image_tag("logo.png", class:"logo-icon"), root_path %>
+      <span class="header-title">Sarabred</span>
+    </div>
+    <div class="company-add">
+      会社詳細
+    </div>
+  </div>
+</header>
 
-<div>
-  <%= @company.company_name %>
-</div>
-<div>
-  <%= @company.capital_stock.name %>
-</div>
-<div>
-  <%= @company.phone_number%>
-</div>
-<div>
-  <%= @company.address %>
-</div>
-<div>
-  <%= @company.building_name %>
+<div class="company-new-main">
+  <div class="company-new-center">
+    <div>
+      <div>
+      <%= @company.company_name %>
+      </div>
+      <div>
+      <%= @company.capital_stock.name %>
+      </div>
+      <div>
+      <%= @company.phone_number%>
+      </div>
+      <div>
+      <%= @company.address %>
+      </div>
+      <div>
+      <%= @company.building_name %>
+      </div>
+    </div>
+
+    <%= link_to '活動を記録',new_company_activity_path(@company) %>
+
+    <% @activities.each do |activity| %>
+    <div>
+      <%= activity.activity_day %><%= activity.client_name %>
+    </div>
+    <% end %>
+
+  </div>
 </div>
 
-<%= link_to '活動を記録',new_company_activity_path(@company) %>
-
-<% @activities.each do |activity| %>
-  <%= activity.activity_day %>
-<% end %>
+<%= render "shared/footer" %>

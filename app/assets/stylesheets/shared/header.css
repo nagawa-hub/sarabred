@@ -2,6 +2,7 @@
   width: 100vw;
   height:120px;
   padding: 2vh 15vw;
+  border-bottom: 5px solid gray;
 }
 .header-contents {
   display: flex;

@@ -1,17 +1,64 @@
-会社追加ページ
+<header class="top-page-header">
+  <div class="header-contents">
+    <div class="logo-title">
+      <%= link_to image_tag("logo.png", class:"logo-icon"), root_path %>
+      <span class="header-title">Sarabred</span>
+    </div>
+    <div class="company-add">
+      会社情報を追加
+    </div>
+  </div>
+</header>
 
-<%= form_with model: @company, local: true do |f|%>
+<div class="company-new-main">
+  <div class="company-new-center">
+    <%= form_with model: @company, local: true do |f|%>
+      <div class="company-form">
+        会社名 (株式会社を省略して入力)  <span class="must-icon">*<span><br/>
+        <%= f.text_field :company_name, placeholder:"会社名を入力してください", class: "company-text-box" %>
+      </div>
+      <div class="phone-number-form">
+        電話番号  <span class="must-icon">*<span>
+        <%= f.text_field :phone_number, placeholder:"例：03-1234-1234", class:"phone-text-form" %>
+      </div>
+      <div class="address-form">
+        住所<br/>
+        <%= f.text_field :address, placeholder:"例：赤坂緑区青山1-1-1", class:"address-text-form" %>
+      </div>
+      <div class="building-form">
+        建物名
+        <%= f.text_field :building_name, placeholder:"例：赤坂国際ビル5F", class:"building-text-form" %>
+      </div>
+      <div class="station-form">
+        最寄り駅
+        <%= f.text_field :nearest_station, placeholder:"例：渋谷", class:"station-text-form" %>
+      </div>
+      <div class="industry-form">
+        業種  <span class="must-icon">*<span>
+        <%= f.collection_select(:industry_id, Industry.all, :id, :name, {}, {class:"industry-select-box"}) %>
+      </div>
+      <div class="capital-form">
+        資本金
+        <%= f.collection_select(:capital_stock_id, CapitalStock.all, :id, :name, {}, {class:"capital-select-box"}) %>
+      </div>
+      <div class="employee-form">
+        従業員数
+        <%= f.collection_select(:employee_id, Employee.all, :id, :name, {}, {class:"employee-select-box"}) %>
+      </div>
+      <div class="status-form">
+        取引ステータス  <span class="must-icon">*<span>
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"status-select-box"}) %>
+      </div>
+      <div class="rank-form">
+        見込み  <span class="must-icon">*<span>
+        <%= f.collection_select(:rank_id, Rank.all, :id, :name, {}, {class:"rank-select-box"}) %>
+      </div>
+      <div class="save-form">
+        <%= f.submit "保存",class:"save-btn" %>
+        <%= link_to "もどる", root_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<%= f.text_field :company_name, placeholder:"会社名を入力してください" %>
-<%= f.text_field :phone_number, placeholder:"例）03-1234-1234" %>
-<%= f.text_field :address, placeholder:"例）横浜市緑区青山1-1-1" %>
-<%= f.text_field :building_name, placeholder:"例）横浜国際ビル5F" %>
-<%= f.text_field :nearest_station, placeholder:"例）品川" %>
-<%= f.collection_select(:industry_id, Industry.all, :id, :name, {}, {class:"select-box"}) %>
-<%= f.collection_select(:capital_stock_id, CapitalStock.all, :id, :name, {}, {class:"select-box"}) %>
-<%= f.collection_select(:employee_id, Employee.all, :id, :name, {}, {class:"select-box"}) %>
-<%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box"}) %>
-<%= f.collection_select(:rank_id, Rank.all, :id, :name, {}, {class:"select-box"}) %>
-
-<%= f.submit "保存" %>
-<% end %>
+<%= render "shared/footer" %>

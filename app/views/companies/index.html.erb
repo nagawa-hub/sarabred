@@ -5,7 +5,7 @@
     <ul class="sign_in_contents">
       <% if user_signed_in? %>
         <li class="left-lists">User：<%= current_user.name %><li>
-        <li class="left-lists"><%= link_to "会社情報を登録する", new_company_path, class: "save_company" %></li>
+        <li class="left-lists"><%= link_to "会社情報を追加する", new_company_path, class: "save_company" %></li>
         <li class="left-lists"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "sign_out" %></li>
       <% else %>       
         <li class="left-lists"><%= link_to "ログイン", new_user_session_path, class: "sign_in" %></li>
@@ -26,5 +26,4 @@
   </div> 
 </div>
 
-<footer class="top-page-footer">
-</footer>
+<%= render "shared/footer" %>

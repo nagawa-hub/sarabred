@@ -3,7 +3,7 @@
   display: flex;
 }
 .left-side-bar{
-  background-color:#C0C0C0 ;
+  background-color:#C0C0C0;
   width: 170px;
   padding: 20px 10px;
 }
@@ -24,11 +24,6 @@
   color: black;
 }
 
-
-.select-box {
-  height: 30px;
-  width: 200px;
-}
 .top-page-footer{
   width: 100vw;
   height: 15px;
