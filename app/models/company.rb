@@ -22,4 +22,12 @@ class Company < ApplicationRecord
     validates :status_id
     validates :rank_id
   end
+
+  def self.search(search)
+    if search != ""
+      Company.where('company_name LIKE(?)', "%#{search}%").includes(:user).order("created_at DESC")
+    else
+      Company.includes(:user).order("created_at DESC")
+    end
+  end
 end

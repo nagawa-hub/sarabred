@@ -16,11 +16,37 @@
 
   <div class="center-contents">
     <% @companies.each do |company| %>
-      <div>
-        <%= link_to company_path(company.id) do %>
+      <div class="company-field">
+        <div class="company-name-field">
+          <%= link_to company_path(company.id),class:"company-name-link" do %>
           <%= company.company_name %>
-        <% end %>
+          <% end %>
+        </div>       
+        <div class="phone-number-field">
           <%= company.phone_number %>
+        </div>
+        <div class="station-field">
+          <%= company.nearest_station %>
+        </div>
+        <div>
+          <%= company.user.name %>
+        </div>
+        <% if company.rank_id == 2 %>
+          <div>A</div>
+        <% elsif company.rank_id == 3 %>
+          <div>B</div>
+        <% elsif company.rank_id == 4 %>
+          <div>C</div>
+        <% elsif company.rank_id == 5 %>
+          <div>D</div>
+        <% else %>
+          <div>E</div>
+        <% end %>
+        <div class="status-field">
+          <%= company.status.name %>
+        </div>
+        <div>
+        </div>  
       </div>        
     <% end %>
   </div> 

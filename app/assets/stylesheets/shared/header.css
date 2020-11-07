@@ -1,6 +1,6 @@
 .top-page-header {
   width: 100vw;
-  height:120px;
+  height: 120px;
   padding: 2vh 15vw;
   border-bottom: 5px solid gray;
 }
@@ -19,6 +19,15 @@
   height: 100px;  
 }
 .input-box {
+  height: 30px;
   width: 30vw;
   padding-left: 10px;
+}
+.search-btn{
+  height: 30px;
+  width: 40px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 2px;
 }

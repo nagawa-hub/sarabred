@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   root to: 'companies#index'
   resources :companies, only: [:index,:new,:create,:show] do
     resources :activities, only: [:new,:create]
+    collection do
+      get 'search'
+    end
   end
 end

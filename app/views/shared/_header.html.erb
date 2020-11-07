@@ -4,8 +4,9 @@
       <%= link_to image_tag("logo.png", class:"logo-icon"), root_path %>
       <span class="header-title">Sarabred</span>
     </div>
-    <form class="search-form" action="#">
-      <input class="input-box", placeholder="会社を検索する">
-    </form>
+    <%= form_with(url: search_companies_path, method: :get, local: true, class: "search-form") do |f| %>
+      <%= f.text_field :keyword, placeholder:"会社を検索する", class: "input-box" %>
+      <%= f.submit "検索", class:"search-btn"%>
+    <% end %>
   </div>
 </header>

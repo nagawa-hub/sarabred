@@ -10,34 +10,81 @@
   </div>
 </header>
 
-<div class="company-new-main">
-  <div class="company-new-center">
-    <div>
-      <div>
-      <%= @company.company_name %>
+<div class="company-show-main">
+  <div class="company-show-center">
+    <div class="show-center-top">
+      <% if @company.status_id == 2 %>
+        <div class="status-now">
+          <p class="status-text">取引中</p>
+        </div>
+      <% elsif @company.status_id == 4 %>
+        <div class="status-past">
+          <p class="status-text">過去に取引あり</p>
+        </div>
+      <% else %>
+        <div class="status-none">
+          <p class="status-text">取引なし</p>
+        </div>
+      <% end %>
+      <div class="create-data">
+        Creater：<%= @company.user.name %>  
       </div>
-      <div>
-      <%= @company.capital_stock.name %>
+    </div>
+    <div class="company-data">
+      <div class="show-company-name">
+        会社名　：
+        <%= @company.company_name %>
       </div>
-      <div>
-      <%= @company.phone_number%>
+      <div class="show-company-phone">
+        電話番号：
+        <%= @company.phone_number%>
       </div>
-      <div>
-      <%= @company.address %>
+      <div class="show-company-capital">
+        資本金　：
+        <%= @company.capital_stock.name %>
       </div>
-      <div>
-      <%= @company.building_name %>
+      <div class="show-company-employee">
+        社員数　：
+        <%= @company.employee.name %>
+      </div>
+      <div class="show-company-address">
+        所在地　：
+        <%= @company.address %>
+        <% if @company.building_name.present? %>
+          <%= @company.building_name %>
+        <% end %>
       </div>
     </div>
 
-    <%= link_to '活動を記録',new_company_activity_path(@company) %>
-
-    <% @activities.each do |activity| %>
-    <div>
-      <%= activity.activity_day %><%= activity.client_name %>
+    <div class="activity-header">
+      <div class="activity-title">
+        活動実績（直近の活動から記載)
+      </div>
+      <%= link_to new_company_activity_path(@company), class:"activity-link" do %>
+      <div class="activity-btn">活動を記録する</div>
+      <% end %>
     </div>
-    <% end %>
 
+    <% if @activities.exists? %>
+      <% @activities.each do |activity| %>
+      <div class="activity-content">
+        <div class="activity-top">
+          <%= activity.activity_day %>
+          <%= activity.client_name %>
+          <%= activity.user.name%>
+        </div>
+        <div class="activity-bottom">
+          <%= activity.memo %>
+        </div>
+      </div>
+      <% end %>
+    <% else %>
+      <div class="activity-none">
+        <div class="none-message">活動履歴はありません</div>
+        <%= image_tag "building.png", class:"building-icon" %>
+      </div>
+    <% end%>
+    <%= link_to "もどる", root_path, class:"back-btn" %>
   </div>
 </div>
 

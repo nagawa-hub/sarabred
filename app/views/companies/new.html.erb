@@ -22,7 +22,7 @@
         <%= f.text_field :phone_number, placeholder:"例：03-1234-1234", class:"phone-text-form" %>
       </div>
       <div class="address-form">
-        住所<br/>
+        所在地<br/>
         <%= f.text_field :address, placeholder:"例：赤坂緑区青山1-1-1", class:"address-text-form" %>
       </div>
       <div class="building-form">
@@ -42,7 +42,7 @@
         <%= f.collection_select(:capital_stock_id, CapitalStock.all, :id, :name, {}, {class:"capital-select-box"}) %>
       </div>
       <div class="employee-form">
-        従業員数
+        社員数
         <%= f.collection_select(:employee_id, Employee.all, :id, :name, {}, {class:"employee-select-box"}) %>
       </div>
       <div class="status-form">

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.includes(:user).order("created_at DESC")
   end
   
   def new
@@ -19,7 +19,12 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @activities = @company.activities
+    @activities = @company.activities.includes(:user).order("activity_day DESC")
+  end
+  
+  def search
+    @companies = Company.search(params[:keyword])
+    render :index
   end
 
   private
