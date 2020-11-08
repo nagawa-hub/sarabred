@@ -15,51 +15,49 @@
   </div>
 
   <div class="center-contents">
-    <ul>
-      <li>会社名</li>
-      <li>電話番号</li>
-      <li>住所</li>
-      <li>最寄駅</li>
-      <li>担当営業</li>
-      <li>見込み</li>
-      <li>取引ステータス</li>
+    <ul class="company-title-header">
+      <li class="company-title">会社名</li>
+      <li class="phone-title">電話番号</li>
+      <li class="address-title">住所</li>
+      <li class="station-title">最寄駅</li>
+      <li class="user-title">担当営業</li>
+      <li class="status-title">取引ステータス</li>
+      <li class="rank-title">見込み</li>
     </ul>
     <% @companies.each do |company| %>
-      <div class="company-field">
-        <div class="company-name-field">
+      <ul class="company-field">
+        <li class="company-name-field">
           <%= link_to company_path(company.id),class:"company-name-link" do %>
           <%= company.company_name %>
           <% end %>
-        </div>       
-        <div class="phone-number-field">
+        </li>       
+        <li class="phone-number-field">
           <%= company.phone_number %>
-        </div>
-        <div class="address-field">
+        </li>
+        <li class="address-field">
           <%= company.address %>
-        </div>
-        <div class="station-field">
+        </li>
+        <li class="station-field">
           <%= company.nearest_station %>
-        </div>
-        <div class="user-field">
+        </li>
+        <li class="user-field">
           <%= company.user.name %>
-        </div>
-        <% if company.rank_id == 2 %>
-          <div class="rank-field">A</div>
-        <% elsif company.rank_id == 3 %>
-          <div class="rank-field">B</div>
-        <% elsif company.rank_id == 4 %>
-          <div class="rank-field">C</div>
-        <% elsif company.rank_id == 5 %>
-          <div class="rank-field">D</div>
-        <% else %>
-          <div class="rank-field">E</div>
-        <% end %>
-        <div class="status-field">
+        </li>
+        <li class="status-field">
           <%= company.status.name %>
-        </div>
-        <div>
-        </div>  
-      </div>        
+        </li>
+        <% if company.rank_id == 2 %>
+          <li class="rank-field">A</li>
+        <% elsif company.rank_id == 3 %>
+          <li class="rank-field">B</li>
+        <% elsif company.rank_id == 4 %>
+          <li class="rank-field">C</li>
+        <% elsif company.rank_id == 5 %>
+          <li class="rank-field">D</li>
+        <% else %>
+          <li class="rank-field">E</li>
+        <% end %>
+      </ul>        
     <% end %>
   </div> 
 </div>

@@ -26,6 +26,43 @@
   font-size:15px;
   color: black;
 }
+/* 会社表示ページ */
+.company-title-header{
+  display: flex;
+  margin-bottom: 20px;
+}
+.company-title{
+  width: 250px;
+  text-align: center;
+}
+.phone-title{
+  width: 140px;
+  text-align: center;
+}
+.address-title{
+  width: 200px;
+  overflow: hidden;
+  text-align: center;
+}
+.station-title{
+  width: 80px;
+  overflow: hidden;
+  text-align: center;
+}
+.user-title{
+  width: 120px;
+  overflow: hidden;
+  text-align: center;
+}
+.rank-title{
+  width: 50px;
+  text-align: center;
+  overflow: hidden;
+}
+.status-title{
+  width: 140px;
+  overflow: hidden;
+}
 .company-field{
   display: flex;
   margin-bottom: 5px;
@@ -43,9 +80,13 @@
 }
 .phone-number-field{
   width: 140px;
+  text-align: center;
 }
 .address-field{
   width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .station-field{
   width: 80px;
@@ -54,13 +95,16 @@
   text-overflow: ellipsis;
 }
 .status-field{
-  width: 120px;
+  width: 140px;
+  overflow: hidden;
 }
 .rank-field{
-  width: 30px;
+  width: 50px;
+  text-align: center;
 }
 .user-field{
-  width: 100px;
+  width: 120px;
+  text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -71,6 +115,4 @@
   height: 15px;
   background-color: gray;
 }
-ul{
-  display: flex;
-}
+
