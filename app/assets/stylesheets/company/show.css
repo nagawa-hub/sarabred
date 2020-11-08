@@ -67,10 +67,6 @@
   margin-bottom: 10px;
 }
 /* 活動実績 */
-.activity-content{
-  width: 80%;
-  margin: 0 auto;
-}
 .activity-header{
   margin: 30px auto;
   display: flex;
@@ -88,10 +84,27 @@
   
 }
 .activity-content{
+  width: 80%;
+  margin: 0 auto;
   background-color: #EEEEEE;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.activity-top{
+  display: flex;
+}
+.activity-puts-user{
+  margin:0 0 0 auto;
+}
+.delete-activity{
+  margin: 0 0 0 auto;
+}
+.delete-link {
+  color: black;
+  font-size: 14px;
 }
 .activity-none{
   display: flex;

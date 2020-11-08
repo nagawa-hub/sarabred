@@ -11,6 +11,9 @@
   align-items: center;
   padding: 50px 0;
 }
+.error-alert{
+  margin-bottom: 30px;
+}
 /* 以下フォーム */
 .must-icon {
   color: red;
@@ -71,7 +74,7 @@
 .capital-select-box {
   margin-left: 40px;
 }
-.employee-form {
+.employee-form{ 
   margin-bottom: 20px;
 }
 .employee-select-box {

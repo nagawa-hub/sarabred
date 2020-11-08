@@ -15,6 +15,15 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @company = Company.find(params[:company_id])
+    activity = @company.activities.find(params[:id])
+    if current_user.id == activity.user_id
+      activity.destroy
+    end
+    redirect_to root_path 
+  end
+
   private
   def activity_params
     params.require(:activity).permit(:activity_day,:client_name,:memo).merge(user_id: current_user.id, company_id: @company.id)

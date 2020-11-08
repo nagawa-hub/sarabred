@@ -15,6 +15,15 @@
   </div>
 
   <div class="center-contents">
+    <ul>
+      <li>会社名</li>
+      <li>電話番号</li>
+      <li>住所</li>
+      <li>最寄駅</li>
+      <li>担当営業</li>
+      <li>見込み</li>
+      <li>取引ステータス</li>
+    </ul>
     <% @companies.each do |company| %>
       <div class="company-field">
         <div class="company-name-field">
@@ -25,22 +34,25 @@
         <div class="phone-number-field">
           <%= company.phone_number %>
         </div>
+        <div class="address-field">
+          <%= company.address %>
+        </div>
         <div class="station-field">
           <%= company.nearest_station %>
         </div>
-        <div>
+        <div class="user-field">
           <%= company.user.name %>
         </div>
         <% if company.rank_id == 2 %>
-          <div>A</div>
+          <div class="rank-field">A</div>
         <% elsif company.rank_id == 3 %>
-          <div>B</div>
+          <div class="rank-field">B</div>
         <% elsif company.rank_id == 4 %>
-          <div>C</div>
+          <div class="rank-field">C</div>
         <% elsif company.rank_id == 5 %>
-          <div>D</div>
+          <div class="rank-field">D</div>
         <% else %>
-          <div>E</div>
+          <div class="rank-field">E</div>
         <% end %>
         <div class="status-field">
           <%= company.status.name %>

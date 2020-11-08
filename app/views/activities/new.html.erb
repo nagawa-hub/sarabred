@@ -1,10 +1,38 @@
-活動記録ページ
+<header class="top-page-header">
+  <div class="header-contents">
+    <div class="logo-title">
+      <%= link_to image_tag("logo.png", class:"logo-icon"), root_path %>
+      <span class="header-title">Sarabred</span>
+    </div>
+    <div class="company-add">
+      活動情報を追加
+    </div>
+  </div>
+</header>
 
-<%= form_with model: [@company, @activity], local: true do |f| %>
-  
-  <%= f.date_select :activity_day, default: { year: Time.now.year, month: Time.now.month, day: Time.now.day } %>
-  <%= f.text_field :client_name, placeholder:"例)山田" %>
-  <%= f.text_area :memo %>
-  <%= f.submit %>
+<div class="activity-new-main">
+  <div class="activity-new-center">
+    <%= form_with model: [@company, @activity], local: true do |f| %>
+      
+      <div class="activity-date-form">
+        活動日を入力  <span class="must-icon">*</span><br/>
+        <%= f.date_select :activity_day, default: { year: Time.now.year, month: Time.now.month, day: Time.now.day } %>
+      </div>
+      <div class="activity-client-form">
+        顧客の担当者名を入力  <span class="must-icon">*</span><br/>
+        <%= f.text_field :client_name, placeholder:"例:山田部長", class:"activity-client-text-box" %>
+      </div>
+      <div class="activity-memo-form">
+        活動内容を記載<br/>
+        <%= f.text_area :memo, placeholder:"例：打ち合わせ", class:"activity-memo-text-box" %>
+      </div>
+      <div class="save-form">
+        <%= f.submit "保存",class:"save-btn" %>
+        <%= link_to "もどる", company_path(@company), class:"back-btn" %>
+      </div>
 
-<% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

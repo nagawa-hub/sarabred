@@ -69,13 +69,24 @@
       <% @activities.each do |activity| %>
       <div class="activity-content">
         <div class="activity-top">
-          <%= activity.activity_day %>
-          <%= activity.client_name %>
-          <%= activity.user.name%>
+          <div class="activity-puts-day">
+            <%= activity.activity_day %>
+          </div>
+          <div class="activity-puts-client">
+            　to <%= activity.client_name %>
+          </div>
+          <div class="activity-puts-user">
+            <%= activity.user.name%>
+          </div>
         </div>
         <div class="activity-bottom">
           <%= activity.memo %>
         </div>
+        <% if current_user.id == activity.user_id %>
+        <div class="delete-activity">
+          <%= link_to "削除", company_activity_path(@company, activity), method: :delete, class:"delete-link" %>
+        </div>
+        <% end %>
       </div>
       <% end %>
     <% else %>

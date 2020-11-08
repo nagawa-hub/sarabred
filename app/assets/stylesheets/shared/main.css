@@ -30,25 +30,47 @@
   display: flex;
   margin-bottom: 5px;
   border-bottom: 1px solid gray;
+  text-overflow: ellipsis;
+}
+.company-name-field{
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .company-name-link{
   text-decoration: none;
 }
-.company-name-field{
+.phone-number-field{
+  width: 140px;
+}
+.address-field{
   width: 200px;
 }
-.phone-number-field{
-  width: 120px;
-}
 .station-field{
-  width: 70px;
+  width: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .status-field{
+  width: 120px;
+}
+.rank-field{
+  width: 30px;
+}
+.user-field{
   width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .top-page-footer{
   width: 100vw;
   height: 15px;
   background-color: gray;
+}
+ul{
+  display: flex;
 }
