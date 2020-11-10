@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :move_to_index, only: [:new,:create]
+
   def index
     @companies = Company.includes(:user).order("created_at DESC")
   end
@@ -28,6 +30,12 @@ class CompaniesController < ApplicationController
   end
 
   private
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+
   def company_params
     params.require(:company).permit(:company_name,:phone_number,:address,:building_name,:nearest_station,:industry_id,:capital_stock_id,:employee_id,:status_id,:rank_id).merge(user_id: current_user.id)
   end

@@ -82,7 +82,7 @@
         <div class="activity-bottom">
           <%= activity.memo %>
         </div>
-        <% if current_user.id == activity.user_id %>
+        <% if user_signed_in? && current_user.id == activity.user_id %>
         <div class="delete-activity">
           <%= link_to "削除", company_activity_path(@company, activity), method: :delete, class:"delete-link" %>
         </div>

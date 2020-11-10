@@ -116,3 +116,17 @@
   background-color: gray;
 }
 
+.company-none{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+.company-none-message{
+}
+.company-none-icon{
+  margin-top: 30px;
+  width: 200px;
+  height: 200px;
+}

@@ -59,6 +59,12 @@
         <% end %>
       </ul>        
     <% end %>
+    <% if @companies.empty? %>
+      <div class="company-none">
+        <div class="company-none-message">会社データがありません</div>
+        <%= image_tag "building.png", class:"company-none-icon" %>
+      </div>
+    <% end %>
   </div> 
 </div>
 

@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+  before_action :move_to_root
+  
   def new
     @company = Company.find(params[:company_id])
     @activity = Activity.new
@@ -23,8 +25,14 @@ class ActivitiesController < ApplicationController
     end
     redirect_to root_path 
   end
-
+  
   private
+  def move_to_root
+    unless user_signed_in?
+      redirect_to controller: :companies, action: :index
+    end
+  end
+
   def activity_params
     params.require(:activity).permit(:activity_day,:client_name,:memo).merge(user_id: current_user.id, company_id: @company.id)
   end
