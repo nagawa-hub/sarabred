@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
   belongs_to :user
-  has_many :activities
+  has_many :activities, dependent: :destroy 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :industry

@@ -23,6 +23,14 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @activities = @company.activities.includes(:user).order("activity_day DESC")
   end
+
+  def destroy
+    company = Company.find(params[:id])
+    if user_signed_in? && current_user.id == company.user_id
+      company.destroy
+    end
+    redirect_to root_path
+  end
   
   def search
     @companies = Company.search(params[:keyword])

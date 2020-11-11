@@ -17,6 +17,14 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
+.create-data{
+  display: flex;
+  flex-direction: column;
+}
+.company-delete{
+  margin-top: 10px;
+  color: black;
+}
 
 /* ステータス */
 .status-now{
@@ -67,6 +75,7 @@
 .show-company-address{
   margin-bottom: 10px;
 }
+
 /* 活動実績 */
 .activity-header{
   margin: 30px auto;

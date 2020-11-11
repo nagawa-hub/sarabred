@@ -27,7 +27,10 @@
         </div>
       <% end %>
       <div class="create-data">
-        Creater：<%= @company.user.name %>  
+        Creater：<%= @company.user.name %>
+        <% if user_signed_in? && current_user.id == @company.user_id %>
+          <%= link_to "会社データを削除", company_path(@company), method: :delete, class:"company-delete" %>  
+        <% end %>
       </div>
     </div>
     <div class="company-data">
@@ -99,8 +102,7 @@
         <div class="none-message">活動履歴はありません</div>
         <%= image_tag "building.png", class:"building-icon" %>
       </div>
-    <% end%>
-     
+    <% end%> 
     <%= link_to "もどる", root_path, class:"back-btn" %>
   </div>
 </div>
