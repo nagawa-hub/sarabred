@@ -63,7 +63,8 @@
   margin-bottom: 10px;
 }
 .show-company-capital,
-.show-company-employee{
+.show-company-employee,
+.show-company-address{
   margin-bottom: 10px;
 }
 /* 活動実績 */
@@ -118,4 +119,14 @@
 .building-icon{
   width: 200px;
   height: 200px;
+}
+
+.g-map-area{
+  margin: 0 auto;
+  width: 320px;
+  height: 320px;
+  background-color: #EEEEEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

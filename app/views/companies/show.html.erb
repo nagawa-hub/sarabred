@@ -55,7 +55,12 @@
         <% end %>
       </div>
     </div>
-
+    <% if @company.address.present? %>
+      <div class="g-map-area">
+        <iframe style="border:0; width: 300px; height: 300px" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["G_MAP_KEY"] %>&q=<%= @company.company_name %>" allowfullscreen>
+        </iframe>
+      </div>
+    <% end %>
     <div class="activity-header">
       <div class="activity-title">
         活動実績（直近の活動から記載)
@@ -95,6 +100,7 @@
         <%= image_tag "building.png", class:"building-icon" %>
       </div>
     <% end%>
+     
     <%= link_to "もどる", root_path, class:"back-btn" %>
   </div>
 </div>
