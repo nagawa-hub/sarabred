@@ -1,6 +1,19 @@
-# テーブル設計
+# Sarabred
 
-## usersテーブル
+##　アプリの概要
+法人向けの営業担当者が使えるように設計した顧客管理・活動記録アプリです。
+ログインすることによって会社のデータを登録ができ、登録されている会社に対していつ、何を行ったかを記録することができます。
+また取引ステータスや見込みなども合わせて登録ができるので、優良顧客に対して効果的なアプローチができているかの指標にすることができます。
+
+## URL
+http://54.238.18.138/
+
+テスト用アカウント
+メールアドレス：sample@sample
+パスワード：sample
+
+## テーブル設計
+### usersテーブル
 
 | Column             | Type    | Options                  |
 | ------------------ | ------- | ------------------------ |
@@ -8,12 +21,11 @@
 | encrypted_password | string  | null: false              |
 | name               | string  | null: false              |
 
-### Association
+#### Association
 - has_many :companies
 - has_many :activities
 
-
-## companiesテーブル
+### companiesテーブル
 
 | Column           | Type       | Options                       |
 | ---------------- | ---------- | ----------------------------- |
@@ -29,11 +41,11 @@
 | rank_id          | integer    | null: false                   |
 | user             | references | null: false foreign_key: true |
 
-### Association
+#### Association
 - belongs_to :user 
 - has_many :activities
  
-## activitiesテーブル
+### activitiesテーブル
 
 | Column       | Type       | Options                       |
 | ------------ | ---------- | ----------------------------- |
@@ -43,6 +55,6 @@
 | user         | references | null: false foreign_key: true |
 | company      | references | null: false foreign_key: true |
 
-### Association
+#### Association
 - belongs_to :user
 - belongs_to :company
