@@ -1,0 +1,50 @@
+.user-show-main {
+  height: 100%;
+  width: 100vw;
+  background-color: #C0C0C0;
+}
+.user-show-center{
+  height: calc(100vh - 135px);
+  width: 80%;
+  background-color: white;
+  margin: 0 auto;
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+.user-header{
+  margin-bottom: 20px;
+}
+.user-activity-text{
+  margin-bottom: 10px;
+}
+.activity-list{
+  display: flex;
+  margin-bottom: 5px;
+}
+.list-company-name{
+  margin-left: 20px;
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.my-company-link{
+  color: black;
+}
+.list-client{
+  width: 70px;
+  margin-left: 20px;
+}
+.list-act-memo{
+  margin-left: 20px;
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.list-station{
+  margin-left: 20px;
+  width: 70px;
+}

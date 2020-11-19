@@ -3,6 +3,9 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.includes(:user).order("created_at DESC")
+    if user_signed_in?
+      @user = current_user.id
+    end
   end
   
   def new
