@@ -38,7 +38,11 @@
             <% end %>
           </ul>
         <% end %>
+        <% if @activities.empty? %>
+          活動の記録がありません
+        <% end %>
     </div>
+    
       
     <%= link_to "もどる", root_path, class:"back-btn" %>
   </div>
