@@ -37,7 +37,9 @@ class CompaniesController < ApplicationController
   
   def search
     @companies = Company.search(params[:keyword])
-    @user = current_user.id
+    if user_signed_in?
+      @user = current_user.id
+    end
     render :index
   end
 
