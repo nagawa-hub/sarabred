@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="main">    
+<div class="main">
   <div class="left-side-bar">
     <ul class="sign_in_contents">
       <% if user_signed_in? %>
@@ -31,7 +31,7 @@
           <%= link_to company_path(company.id),class:"company-name-link" do %>
           <%= company.company_name %>
           <% end %>
-        </li>       
+        </li>
         <li class="phone-number-field">
           <%= company.phone_number %>
         </li>
@@ -58,7 +58,7 @@
         <% else %>
           <li class="rank-field">E</li>
         <% end %>
-      </ul>        
+      </ul>
     <% end %>
     <% if @companies.empty? %>
       <div class="company-none">
@@ -66,7 +66,7 @@
         <%= image_tag "building.png", class:"company-none-icon" %>
       </div>
     <% end %>
-  </div> 
+  </div>
 </div>
 
 <%= render "shared/footer" %>

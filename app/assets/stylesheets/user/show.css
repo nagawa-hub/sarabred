@@ -11,7 +11,7 @@
   padding: 50px 50px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .user-header{
   margin-bottom: 20px;
