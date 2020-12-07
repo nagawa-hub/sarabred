@@ -23,7 +23,19 @@ http://54.238.18.138/
 ransackを用いた高度な検索機能
 名刺管理アプリとの連携
 
+### トップページ
+<img width="1313" alt="6c180ac3a92968e6a8135005ab49a5c0" src="https://user-images.githubusercontent.com/72905756/101322265-1605b280-38aa-11eb-9e38-8515d2f65a1c.png">
+
+### 会社詳細ページ
+<img width="1253" alt="c06e5e2bf81174c16caddd0a9b828ae8" src="https://user-images.githubusercontent.com/72905756/101322077-c0c9a100-38a9-11eb-8ec4-d042c6e86ea5.png">
+
+### 会社登録ページ
+<img width="1111" alt="ee17cefd257978efe5fec331a8c7d1cb" src="https://user-images.githubusercontent.com/72905756/101322134-df2f9c80-38a9-11eb-8ff5-d625a9d99f43.png">
+
 ## テーブル設計
+
+### ER図
+<img width="647" alt="2ad7c2883a53ff1501d1a3d757f86cbd" src="https://user-images.githubusercontent.com/72905756/101322465-6c72f100-38aa-11eb-8dc7-0e6fa262a4b8.png">
 
 ### usersテーブル
 
@@ -69,4 +81,5 @@ ransackを用いた高度な検索機能
 
 #### Association
 - belongs_to :user
-- belongs_to :company
+- belongs_to :company 
+
