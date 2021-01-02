@@ -29,6 +29,8 @@
         </div>
       <% end %>
     </div>
-    <%= link_to "トップページへ", root_path %>
+    <div>
+      アカウント登録をせず試したい方は<%= link_to "こちら", users_guest_sign_in_path, method: :post %>
+    </div>
   </div>
 </div>

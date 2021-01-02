@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  def show
-    unless user_signed_in?
-      redirect_to controller: :companies, action: :index
-    else
-      @user = User.find(params[:id])
-      @activities = Activity.where(user_id: current_user.id).includes(:company).order("activity_day DESC")
+  
+  def guest
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password =  SecureRandom.urlsafe_base64
     end
+    sign_in user
+    redirect_to root_path
   end
+  
 end

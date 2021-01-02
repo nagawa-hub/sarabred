@@ -1,72 +1,18 @@
 <%= render "shared/header" %>
 
 <div class="main">
-  <div class="left-side-bar">
-    <ul class="sign_in_contents">
-      <% if user_signed_in? %>
-        <li class="left-lists">User：<%= current_user.name %><li>
-        <li class="left-lists"><%= link_to "マイページへ", user_path(@user), class: "link_mypage" %><li>
-        <li class="left-lists"><%= link_to "会社情報を追加", new_company_path, class: "save_company" %></li>
-        <li class="left-lists"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "sign_out" %></li>
-      <% else %>       
-        <li class="left-lists"><%= link_to "ログイン", new_user_session_path, class: "sign_in" %></li>
-        <li class="left-lists"><%= link_to "新規アカウント登録", new_user_registration_path, class: "sign_up" %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div class="center-contents">
-    <ul class="company-title-header">
-      <li class="company-title">会社名</li>
-      <li class="phone-title">電話番号</li>
-      <li class="address-title">住所</li>
-      <li class="station-title">最寄駅</li>
-      <li class="user-title">担当営業</li>
-      <li class="status-title">取引ステータス</li>
-      <li class="rank-title">見込み</li>
-    </ul>
-    <% @companies.each do |company| %>
-      <ul class="company-field">
-        <li class="company-name-field">
-          <%= link_to company_path(company.id),class:"company-name-link" do %>
-          <%= company.company_name %>
-          <% end %>
-        </li>
-        <li class="phone-number-field">
-          <%= company.phone_number %>
-        </li>
-        <li class="address-field">
-          <%= company.address %>
-        </li>
-        <li class="station-field">
-          <%= company.nearest_station %>
-        </li>
-        <li class="user-field">
-          <%= company.user.name %>
-        </li>
-        <li class="status-field">
-          <%= company.status.name %>
-        </li>
-        <% if company.rank_id == 2 %>
-          <li class="rank-field">A</li>
-        <% elsif company.rank_id == 3 %>
-          <li class="rank-field">B</li>
-        <% elsif company.rank_id == 4 %>
-          <li class="rank-field">C</li>
-        <% elsif company.rank_id == 5 %>
-          <li class="rank-field">D</li>
-        <% else %>
-          <li class="rank-field">E</li>
-        <% end %>
-      </ul>
+  <table class="company-table">
+    <tr class="table-header">
+      <th class="company">会社名</th>
+      <th class="phone">電話番号</th>
+      <th class="address">住所</th>
+    </tr>
+    <% @companies.map do |company| %>
+    <tr>
+      <td><%= link_to company.company_name, company_path(company) %></td>
+      <td><%= company.phone_number %></td>
+      <td><%= company.address %></td>
+    </tr>
     <% end %>
-    <% if @companies.empty? %>
-      <div class="company-none">
-        <div class="company-none-message">会社データがありません</div>
-        <%= image_tag "building.png", class:"company-none-icon" %>
-      </div>
-    <% end %>
-  </div>
+  </table>
 </div>
-
-<%= render "shared/footer" %>

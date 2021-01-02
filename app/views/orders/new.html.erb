@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <%= form_with model: [@company, @order], local: true do |f| %>
+    <div>
+      <%= f.text_field :order_name %>
+    </div>
+    <div>
+      <%= f.date_select :start_date %>
+      <%= f.date_select :end_date %>
+    </div>
+    <div>
+      <%= f.text_area :order_comment %>
+    </div>
+    <div>
+      <%= f.text_field :order_price %>
+    </div>
+    <div>
+      <%= f.text_field :order_cost %>
+    </div>
+    <div>
+      <%= f.text_field :order_profit %>
+    </div>
+    <div>
+      <%= f.submit "作成" %>
+    </div>
+  <% end %>
+</div>

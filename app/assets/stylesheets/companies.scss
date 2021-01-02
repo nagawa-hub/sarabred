@@ -1,3 +1,77 @@
-// Place all the styles related to the companies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.header{
+  display: flex;
+  justify-content: space-between;
+  background-color: #305097;
+  height: 50px;
+  width: 100vw;
+  padding: 5px 30px;
+  .header-left{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    .header-menu{
+      font-size: 20px;
+    }
+    .header-menu:hover{
+      cursor: pointer;
+    }
+    .logo-image{
+    height: 40px;
+    width: 40px;
+    margin-left: 30px;
+    }
+  }
+  .header-right{
+    .item{
+      height: 40px;
+      width: 40px;
+      border-radius: 20px;
+      .user-image{
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+.side-menu{
+  height: calc(100vh - 50px);
+  width: 280px;
+  background-color: #fff;
+  position: fixed;
+  top: 50px;
+  left: 0px;
+}
+.user-menu{
+  background-color: #fff;
+  position: fixed;
+  top: 50px;
+  right: 0px;
+}
+.hidden{
+  display: none;
+}
+ 
+.main{
+  height: calc(100vh - 50px);
+  background-color: #F4F5F7;
+  padding: 30px;
+  // company/index
+  .company-table{
+    .table-header{
+      .company{
+      }
+      .phone{
+      }
+      .address{
+      }
+      .station{
+      }
+      .sales{
+      }
+      .status{
+      }
+    }
+  }
+}
+// 

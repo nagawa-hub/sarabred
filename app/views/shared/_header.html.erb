@@ -1,16 +1,19 @@
-<header class="top-page-header">
-  <div class="header-contents">
-    <div class="logo-title">
-      <%= link_to image_tag("logo.png", class:"logo-icon"), root_path %>
-      <div class="header-title">
-        営業向け顧客管理アプリ<br/>
-        Sarabred
-      </div>
+<header class="header">
+  <div class="header-left">
+    <div class="header-menu" id="header-menu">
+      <i class="fas fa-bars"></i>
     </div>
-
-    <%= form_with(url: search_companies_path, method: :get, local: true, class: "search_container") do |f| %>
-      <%= f.text_field :keyword, placeholder:"会社を検索する" %>
-      <%= f.submit "\uF002"%>
-    <% end %>
+    <%= image_tag("logo.png", class:"logo-image")%>
+    <h3>顧客管理システム</h3>
   </div>
+  <ul class="header-right">
+    <li class="item" id="user-icon"><%= image_tag("user.png", class:"user-image") %></li>
+  </ul>
 </header>
+<ul class="side-menu hidden" id="side-menu">
+  <li><%= link_to "ホーム", companies_path %></li>
+  <li><%= link_to "会社情報を新規追加", new_company_path %></li>
+</ul>
+<ul class="user-menu hidden" id="user-menu">
+  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+</ul>

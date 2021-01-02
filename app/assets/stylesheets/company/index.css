@@ -1,7 +1,4 @@
-.main{
-  height: calc(100vh - 135px);
-  display: flex;
-}
+
 .left-side-bar{
   background-color:#C0C0C0;
   width: 190px;

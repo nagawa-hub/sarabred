@@ -1,110 +1,59 @@
-<header class="top-page-header">
-  <div class="header-contents">
-    <div class="logo-title">
-      <%= link_to image_tag("logo.png", class:"logo-icon"), root_path %>
-      <span class="header-title">Sarabred</span>
-    </div>
-    <div class="company-add">
-      会社詳細
-    </div>
+<%= render "shared/header" %>
+
+<div class="main">
+  <div class="company-info">
+    <%= @company.company_name %>
+    <%= @company.company_short_name %>
+    <%= @company.phone_number %>
+    <%= @company.president %>
+    <%= @company.post_number %>
+    <%= @company.address %>
+    <%= @company.building_name %>
+    <%= render "shared/industry" %>
+    <%= @company.capital_stock %>
+    <%= @company.employee %>
   </div>
-</header>
-
-<div class="company-show-main">
-  <div class="company-show-center">
-    <div class="show-center-top">
-      <% if @company.status_id == 2 %>
-        <div class="status-now">
-          <p class="status-text">取引中</p>
-        </div>
-      <% elsif @company.status_id == 4 %>
-        <div class="status-past">
-          <p class="status-text">過去に取引あり</p>
-        </div>
-      <% else %>
-        <div class="status-none">
-          <p class="status-text">取引なし</p>
-        </div>
+  <div class="order-area">
+    <%= link_to "新規作成", new_company_order_path(@company) %>
+    <table>
+      <tr>
+        <th rowspan="2">案件名</th>
+        <th colspan="2">期間</th>
+        <%# <th></th> %>
+        <th rowspan="2">売上</th>
+        <th rowspan="2">原価</th>
+        <th rowspan="2">利益</th>
+      </tr>
+      <tr>
+        <%# <th></th> %>
+        <th>開始</th>
+        <th>終了</th>
+        <%# <th></th> %>
+        <%# <th></th> %>
+        <%# <th></th> %>
+      </tr>
+      <% @orders.map do |order| %>
+      <tr>
+        <td>
+          <%= link_to order.order_name, company_order_path(@company,order) %>
+        </td>
+        <td>
+          <%= order.start_date %>
+        </td>
+        <td>
+          <%= order.end_date %>
+        </td>
+        <td>
+          <%= order.order_price %>
+        </td>
+        <td>
+          <%= order.order_cost %>
+        </td>
+        <td>
+          <%= order.order_profit %>
+        </td>
+      </tr>
       <% end %>
-      <div class="create-data">
-        Creater：<%= @company.user.name %>
-        <% if user_signed_in? && current_user.id == @company.user_id %>
-          <%= link_to "会社データを削除", company_path(@company), method: :delete, class:"company-delete" %>  
-        <% end %>
-      </div>
-    </div>
-    <div class="company-data">
-      <div class="show-company-name">
-        会社名　：
-        <%= @company.company_name %>
-      </div>
-      <div class="show-company-phone">
-        電話番号：
-        <%= @company.phone_number%>
-      </div>
-      <div class="show-company-capital">
-        資本金　：
-        <%= @company.capital_stock.name %>
-      </div>
-      <div class="show-company-employee">
-        社員数　：
-        <%= @company.employee.name %>
-      </div>
-      <div class="show-company-address">
-        所在地　：
-        <%= @company.address %>
-        <% if @company.building_name.present? %>
-          <%= @company.building_name %>
-        <% end %>
-      </div>
-    </div>
-    <% if @company.address.present? %>
-      <div class="g-map-area">
-        <iframe style="border:0; width: 300px; height: 300px" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["G_MAP_KEY"] %>&q=<%= @company.company_name %>" allowfullscreen>
-        </iframe>
-      </div>
-    <% end %>
-    <div class="activity-header">
-      <div class="activity-title">
-        活動実績（直近の活動から表示)
-      </div>
-      <%= link_to new_company_activity_path(@company), class:"activity-link" do %>
-      <div class="activity-btn">活動を記録する</div>
-      <% end %>
-    </div>
-
-    <% if @activities.exists? %>
-      <% @activities.each do |activity| %>
-      <div class="activity-content">
-        <div class="activity-top">
-          <div class="activity-puts-day">
-            <%= activity.activity_day %>
-          </div>
-          <div class="activity-puts-client">
-            　to <%= activity.client_name %>
-          </div>
-          <div class="activity-puts-user">
-            <%= activity.user.name%>
-          </div>
-        </div>
-        <div class="activity-bottom">
-          <%= activity.memo %>
-        </div>
-        <% if user_signed_in? && current_user.id == activity.user_id %>
-        <div class="delete-activity">
-          <%= link_to "削除", company_activity_path(@company, activity), method: :delete, class:"delete-link" %>
-        </div>
-        <% end %>
-      </div>
-      <% end %>
-    <% else %>
-      <div class="activity-none">
-        <div class="none-message">活動履歴はありません</div>
-        <%= image_tag "building.png", class:"building-icon" %>
-      </div>
-    <% end%> 
-    <%= link_to "もどる", root_path, class:"back-btn" %>
+    </table>
   </div>
 </div>
-
-<%= render "shared/footer" %>
