@@ -2,38 +2,61 @@
 
 <div class="main">
   <div class="company-info">
-    <%= @company.company_name %>
-    <%= @company.company_short_name %>
-    <%= @company.phone_number %>
-    <%= @company.president %>
-    <%= @company.post_number %>
-    <%= @company.address %>
-    <%= @company.building_name %>
-    <%= render "shared/industry" %>
-    <%= @company.capital_stock %>
-    <%= @company.employee %>
+    <div class="left-area">
+      <div class="field-1">
+        <p class="item">会社名：<%= @company.company_name %></p>
+        <p class="item">略称：<%= @company.company_short_name %></p>
+        <p class="item">代表者：<%= @company.president %><p>
+      </div>
+      <div class="field-2">
+        <p>電話番号：<%= @company.phone_number %></p>
+        <p>FAX：</p>
+      </div>
+      <div class="field-3">
+        <p>本社所在地</p>
+        <p class="item">〒<%= @company.post_number %><p>
+        <p class="item"><%= @company.address %></p>
+        <p class="item"><%= @company.building_name %></p>
+      </div>
+    </div>
+    <div class="center-area">
+      <div class="field-4">
+        <p class="item">業種：<%= render "shared/industry", industry_id: @company.industry_id %></p>
+        <p class="item">資本金：<%= @company.capital_stock %>(千)円</p>
+        <p class="item">従業員数：<%= @company.employee %>人</p>
+      </div>
+    </div>
   </div>
   <div class="order-area">
     <%= link_to "新規作成", new_company_order_path(@company) %>
-    <table>
+    <table border="1" class="order-table" >
       <tr>
+        <th rowspan="2">id</th>
         <th rowspan="2">案件名</th>
         <th colspan="2">期間</th>
         <%# <th></th> %>
+        <th rowspan="2">担当者</th>
         <th rowspan="2">売上</th>
         <th rowspan="2">原価</th>
         <th rowspan="2">利益</th>
+        <th rowspan="2">ステータス</th>
       </tr>
       <tr>
+        <%# <th></th> %>
         <%# <th></th> %>
         <th>開始</th>
         <th>終了</th>
         <%# <th></th> %>
         <%# <th></th> %>
         <%# <th></th> %>
+        <%# <th></th> %>
+        <%# <th></th> %>
       </tr>
       <% @orders.map do |order| %>
       <tr>
+        <td>
+          <%= order.id %>
+        </td>
         <td>
           <%= link_to order.order_name, company_order_path(@company,order) %>
         </td>
@@ -43,6 +66,9 @@
         <td>
           <%= order.end_date %>
         </td>
+         <td>
+          <%= order.order_leader %>
+        </td>
         <td>
           <%= order.order_price %>
         </td>
@@ -51,6 +77,9 @@
         </td>
         <td>
           <%= order.order_profit %>
+        </td>
+        <td>
+          <%= render "orders/status", order_status_id: order.order_status_id %>
         </td>
       </tr>
       <% end %>

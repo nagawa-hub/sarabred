@@ -3,23 +3,42 @@
 <div class="main">
   <%= form_with model: [@company, @order], local: true do |f| %>
     <div>
+      <%= f.label :order_name, "案件名" %>
       <%= f.text_field :order_name %>
     </div>
     <div>
+      <%= f.label :start_date, "契約期間" %>
       <%= f.date_select :start_date %>
+      〜
       <%= f.date_select :end_date %>
     </div>
     <div>
+      <%= f.label :order_leader, "担当者" %>
+      <%= f.text_field :order_leader %>
+    </div>
+    <div>
+      <%= f.label :order_comment, "詳細" %>
       <%= f.text_area :order_comment %>
     </div>
     <div>
-      <%= f.text_field :order_price %>
+      <%= f.label :order_price, "売上" %>
+      <%= f.text_field :order_price, id:"order-price" %>円
     </div>
     <div>
-      <%= f.text_field :order_cost %>
+      <%= f.label :order_cost, "原価" %>
+      <%= f.text_field :order_cost, id:"order-cost" %>円
     </div>
     <div>
-      <%= f.text_field :order_profit %>
+      利益：
+      <span id="order-profit"></span>円
+    </div>
+    <div>
+      利益率
+      <span id="profit-margin"></span>％
+    </div>
+    <div>
+      ステータス
+      <%= f.collection_select(:order_status_id, OrderStatus.all, :id, :name, {}, {class:""}) %>
     </div>
     <div>
       <%= f.submit "作成" %>

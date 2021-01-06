@@ -3,15 +3,19 @@
 <div class="main">
   <table class="company-table">
     <tr class="table-header">
+      <th>id</th>
       <th class="company">会社名</th>
       <th class="phone">電話番号</th>
-      <th class="address">住所</th>
+      <th class="address">所在地</th>
+      <th>業種</th>
     </tr>
     <% @companies.map do |company| %>
     <tr>
+      <td><%= company.id %></td>
       <td><%= link_to company.company_name, company_path(company) %></td>
       <td><%= company.phone_number %></td>
       <td><%= company.address %></td>
+      <td><%= render "shared/industry", industry_id: company.industry_id %></td>
     </tr>
     <% end %>
   </table>

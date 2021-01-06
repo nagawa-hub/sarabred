@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 2021_01_02_060221) do
     t.date "start_date", null: false
     t.date "end_date", null: false
     t.text "order_comment"
+    t.string "order_leader", null: false
     t.integer "order_price", null: false
     t.integer "order_cost", null: false
     t.integer "order_profit", null: false
+    t.integer "order_status_id", null: false
     t.bigint "user_id"
     t.bigint "company_id"
     t.datetime "created_at", precision: 6, null: false

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_company, only: [:new,:create]
+
   def new
     @order = Order.new
   end
@@ -17,15 +18,17 @@ class OrdersController < ApplicationController
   def set_company
     @company = Company.find(params[:company_id])
   end
+  
   def order_params
     params.require(:order)
           .permit(:order_name,
                   :start_date,
                   :end_date,
                   :order_comment,
+                  :order_leader,
                   :order_price,
                   :order_cost,
-                  :order_profit,
+                  :order_status_id
                   )
           .merge(user_id: current_user.id)
   end

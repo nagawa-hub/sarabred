@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: 'companies#index'
   resources :users, only: [:show]
   resources :companies, only: [:index,:new,:create,:show] do
+    collection do
+      get :dashboard
+    end
     resources :orders, only: [:new,:create,:show]
   end
 end

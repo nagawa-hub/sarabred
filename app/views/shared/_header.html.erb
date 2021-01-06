@@ -11,8 +11,17 @@
   </ul>
 </header>
 <ul class="side-menu hidden" id="side-menu">
-  <li><%= link_to "ホーム", companies_path %></li>
-  <li><%= link_to "会社情報を新規追加", new_company_path %></li>
+  <%= link_to companies_path do %>
+    <li class="item">
+      <span class="icon"><i class="fas fa-home"></i></span>ホーム
+    </li>
+  <% end %>
+  <li class="item">
+    <%= link_to "会社情報を新規追加", new_company_path %>
+  </li>
+  <li class="item">
+    <%= link_to "ダッシュボード", dashboard_companies_path %>
+  </li>
 </ul>
 <ul class="user-menu hidden" id="user-menu">
   <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

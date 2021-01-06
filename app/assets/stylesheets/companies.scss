@@ -1,61 +1,10 @@
-.header{
-  display: flex;
-  justify-content: space-between;
-  background-color: #305097;
-  height: 50px;
-  width: 100vw;
-  padding: 5px 30px;
-  .header-left{
-    display: flex;
-    align-items: center;
-    color: #fff;
-    .header-menu{
-      font-size: 20px;
-    }
-    .header-menu:hover{
-      cursor: pointer;
-    }
-    .logo-image{
-    height: 40px;
-    width: 40px;
-    margin-left: 30px;
-    }
-  }
-  .header-right{
-    .item{
-      height: 40px;
-      width: 40px;
-      border-radius: 20px;
-      .user-image{
-        height: 100%;
-        width: 100%;
-        border-radius: 100%;
-      }
-    }
-  }
-}
-.side-menu{
-  height: calc(100vh - 50px);
-  width: 280px;
-  background-color: #fff;
-  position: fixed;
-  top: 50px;
-  left: 0px;
-}
-.user-menu{
-  background-color: #fff;
-  position: fixed;
-  top: 50px;
-  right: 0px;
-}
-.hidden{
-  display: none;
-}
- 
 .main{
   height: calc(100vh - 50px);
+  max-width: 1920px;
+  min-width: 1280px;
   background-color: #F4F5F7;
   padding: 30px;
+  overflow-y: scroll;
   // company/index
   .company-table{
     .table-header{
@@ -73,5 +22,38 @@
       }
     }
   }
+  // company/show
+  .company-info{
+    display: flex;
+    width: 90%;
+    margin-bottom: 30px;
+    .left-area{
+      width: 40%;
+      .field-1{
+        margin-bottom: 20px;
+        .item{
+          margin-bottom: 8px;
+        }
+      }
+      .field-2{
+        margin-bottom: 20px;
+      }
+      .field-3{
+        .item{
+          margin-bottom: 5px;
+        }
+      }
+    }
+    .center-area{
+      margin-left: 15px;
+      .field-4{
+        .item{
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+  .order-table{
+    width: 90%;
+  }
 }
-// 

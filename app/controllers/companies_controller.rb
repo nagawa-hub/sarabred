@@ -1,6 +1,15 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
 
+  def dashboard
+    all_price = Order.includes(:company).where(order_status_id: 3).group_by_month(:start_date).sum(:order_price)
+    all_profit = Order.includes(:company).where(order_status_id: 3).group_by_month(:start_date).sum(:order_profit)
+    @chart = [
+      {name: "売上", data: all_price},
+      {name: "利益", data: all_profit}
+    ]
+  end
+
   def index
     @companies = Company.includes(:user).order("id DESC")
   end
